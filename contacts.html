@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>Контакты - CulTravel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">CulTravel</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html" class="active">Контакты</a></li>
+          <li><a href="reviews.html">Отзывы</a></li>
+          <li><a href="gallery.html">Галерея</a></li>
+          <li><a href="tours.html">Туры</a></li>
+          <li><a href="media.html">Медиа-файлы</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="contacts">
+    <div class="container">
+      <h2>Свяжитесь с нами</h2>
+      <p>Мы готовы ответить на все ваши вопросы и помочь с организацией путешествия.</p>
+      <ul>
+        <li><strong>Телефон:</strong> +7 (777) 123-45-67</li>
+        <li><strong>Email:</strong> info@CulTravel.kz</li>
+        <li><strong>Адрес:</strong> ул. Примерная, 123, Алматы, Казахстан</li>
+      </ul>
+      
+      <h3>Форма обратной связи</h3>
+      <div id="errorMessage"></div>
+      <form id="contactForm">
+        <label for="fname">Имя:</label>
+        <input type="text" id="fname" name="fname" required />
+
+        <label for="lname">Фамилия:</label>
+        <input type="text" id="lname" name="lname" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Сообщение:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Отправить</button>
+        <script>
+          document.getElementById('contactForm').addEventListener('submit', function(event) {
+              event.preventDefault(); // предотвращает отправку формы
+          
+              let errorMessage = '';
+              const fname = document.getElementById('fname').value;
+              const lname = document.getElementById('lname').value;
+              const email = document.getElementById('email').value;
+              const message = document.getElementById('message').value;
+          
+              // Экранирование потенциально опасных символов
+              function escapeHtml(text) {
+                  const map = {
+                      '<': '&lt;',
+                      '>': '&gt;',
+                      '"': '&quot;',
+                      "'": '&#39;',
+                      '&': '&amp;'
+                  };
+                  return text.replace(/[<>"'&]/g, function(m) { return map[m]; });
+              }
+          
+              // Проверка на заполненность
+              if (!lname || !fname || !email || !message) {
+                  errorMessage = 'Пожалуйста, заполните все поля.';
+              } else if (!/\S+@\S+\.\S+/.test(email)) {
+                  errorMessage = 'Введите корректный email.';
+              } else if (message.length < 10) {
+                  errorMessage = 'Сообщение должно содержать хотя бы 10 символов.';
+              }
+          
+              if (errorMessage) {
+                  document.getElementById('errorMessage').textContent = errorMessage;
+              } else {
+                  document.getElementById('errorMessage').textContent = '';
+          
+                  // Использование безопасного вывода
+                  document.getElementById('safeOutput').textContent = escapeHtml(message);
+          
+                  alert('Форма отправлена успешно!');
+                  // Здесь можно отправить форму на сервер
+              }
+          });
+          </script>
+      </form>
+    </div>
+  </section>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 CulTravel. Все права защищены.</p>
+    </div>
+  </footer>
+</body>
+</html>
