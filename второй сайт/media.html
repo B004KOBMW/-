@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Медиа - CulTravel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">CulTravel</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="reviews.html">Отзывы</a></li>
+          <li><a href="gallery.html">Галерея</a></li>
+          <li><a href="tours.html">Туры</a></li>
+          <li><a href="media.html" class="active">Медиа-файлы</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Секция Медиа -->
+  <section class="media">
+    <div class="container">
+      <h2>Медиа</h2>
+      
+      <!-- Воспроизведение аудио -->
+      <h3>Слушайте наш плейлист</h3>
+      <audio controls>
+        <source src="audio/travel-music.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудиоплеер.
+      </audio>
+
+      <!-- Воспроизведение видео -->
+      <h3>Видео о наших турах</h3>
+      <video controls width="600">
+        <source src="videos/travel-video.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видеоплеер.
+      </video>
+
+      <!-- Скачивание документа -->
+      <h3>Скачайте туристический гид</h3>
+      <p>В этом документе содержится информация о лучших направлениях путешествий.</p>
+      <a href="docs/travel-guide.pdf" download class="btn">Скачать PDF</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Travel Adventure. Все права защищены.</p>
+    </div>
+  </footer>
+</body>
+</html>

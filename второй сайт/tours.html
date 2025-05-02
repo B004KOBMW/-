@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Туры - Travel Adventure</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Travel Adventure</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="tours.html" class="active">Туры</a></li>
+          <li><a href="reviews.html">Отзывы</a></li>
+          <li><a href="gallery.html">Галерея</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Секция туров -->
+  <section class="tours">
+    <div class="container">
+      <h2>Наши Туры</h2>
+      <div class="tours-grid">
+        <!-- Карточка тура -->
+        <div class="tour-card" data-tour="paris">
+          <img src="images/paris-tour.jpg" alt="Парижский Роман" />
+          <h3>Парижский Роман</h3>
+          <p>Ощутите волшебство Парижа с эксклюзивной экскурсией.</p>
+          <a href="tour-details.html?tour=paris" class="btn">Подробнее</a>
+          <div class="like-section">
+            <button class="like-btn">👍</button>
+            <span class="like-count">0</span>
+          </div>
+        </div>
+
+        <div class="tour-card" data-tour="japan">
+          <img src="images/japan-tour.jpg" alt="Японский Экспресс" />
+          <h3>Японский Экспресс</h3>
+          <p>Откройте для себя Токио и его культурные традиции.</p>
+          <a href="tour-details.html?tour=japan" class="btn">Подробнее</a>
+          <div class="like-section">
+            <button class="like-btn">👍</button>
+            <span class="like-count">0</span>
+          </div>
+        </div>
+
+        <div class="tour-card" data-tour="bali">
+          <img src="images/bali-tour.jpg" alt="Бали Отдых" />
+          <h3>Бали Отдых</h3>
+          <p>Расслабьтесь на райском острове с уникальной культурой.</p>
+          <a href="tour-details.html?tour=bali" class="btn">Подробнее</a>
+          <div class="like-section">
+            <button class="like-btn">👍</button>
+            <span class="like-count">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Travel Adventure. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="likes.js"></script>
+</body>
+</html>

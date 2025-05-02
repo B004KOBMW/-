@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Детали тура - CulTravel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">CulTravel</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="about.html">О нас</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+          <li><a href="reviews.html">Отзывы</a></li>
+          <li><a href="gallery.html">Галерея</a></li>
+          <li><a href="tours.html" class="active">Туры</a></li>
+          <li><a href="media.html" class="active">Медиа-файлы</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="tour-detail">
+    <div class="container">
+      <h2 id="tour-title"></h2>
+      <p><strong>Цена:</strong> <span id="tour-price"></span></p>
+      <h3>Описание тура:</h3>
+      <p id="tour-description"></p>
+      <h3>Программа тура:</h3>
+      <ul id="tour-program"></ul>
+      <a href="tours.html" class="btn">Вернуться к турам</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 CulTravel. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Считываем параметр ?tour=...
+    const params = new URLSearchParams(window.location.search);
+    const tourKey = params.get('tour');
+
+    // Данные туров
+    const toursData = {
+      paris: {
+        title: "Парижский Роман",
+        price: "1000 USD",
+        image: "images/paris-tour.jpg",
+        description: "Этот тур позволит вам окунуться в атмосферу Парижа, насладиться прогулками по элегантным улочкам, посетить знаковые достопримечательности и попробовать изысканную кухню. Программа включает посещение Эйфелевой башни, Лувра и Собора Парижской Богоматери.",
+        program: [
+          "День 1: Прибытие, размещение в отеле, вечерняя прогулка",
+          "День 2: Экскурсия по главным достопримечательностям города",
+          "День 3: Посещение музеев и свободное время",
+          "День 4: Шопинг и прощальный ужин"
+        ]
+      },
+      japan: {
+        title: "Японский Экспресс",
+        price: "1500 USD",
+        image: "images/japan-tour.jpg",
+        description: "Откройте для себя древние традиции и ультрасовременный Токио в этом насыщенном туре по Японии. Программа включает посещение храмов, традиционных садов и современных районов города.",
+        program: [
+          "День 1: Прибытие и знакомство с городом",
+          "День 2: Экскурсия по основным достопримечательностям",
+          "День 3: Посещение музеев и районов шопинга",
+          "День 4: Свободное время и прощальный ужин"
+        ]
+      },
+      bali: {
+        title: "Бали Отдых",
+        price: "1200 USD",
+        image: "images/bali-tour.jpg",
+        description: "Насладитесь тропическим раем на Бали с прогулками по пляжу, экскурсиями и знакомством с местной культурой. Тур включает посещение вулканических пейзажей, традиционных рынков и островных курортов.",
+        program: [
+          "День 1: Прибытие и отдых на пляже",
+          "День 2: Экскурсия по острову и посещение достопримечательностей",
+          "День 3: Посещение местного рынка и культурных объектов",
+          "День 4: Свободное время и прощальный ужин"
+        ]
+      }
+    };
+
+    // Если передан неизвестный параметр, показываем сообщение об ошибке
+    if (!toursData[tourKey]) {
+      document.querySelector('.tour-detail').innerHTML =
+        '<div class="container"><h2>Тур не найден</h2><a href="tours.html" class="btn">Вернуться к турам</a></div>';
+    } else {
+      const tour = toursData[tourKey];
+      document.getElementById('tour-title').textContent = tour.title;
+      document.getElementById('tour-price').textContent = tour.price;
+      document.getElementById('tour-description').textContent = tour.description;
+      document.getElementById('tour-img').src = tour.image;
+      document.getElementById('tour-img').alt = tour.title;
+      
+      const programList = document.getElementById('tour-program');
+      tour.program.forEach(function(item) {
+        const li = document.createElement('li');
+        li.textContent = item;
+        programList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
